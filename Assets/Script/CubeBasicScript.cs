@@ -61,7 +61,8 @@ public class CubeBasicScript : MonoBehaviour
         }
         if (Input.GetKey("down"))
         {
-            transform.position += Vector3.back * MoveSpeed * Time.deltaTime;
+            //transform.position += Vector3.back * MoveSpeed * Time.deltaTime;
+            transform.position -= transform.forward * MoveSpeed * Time.deltaTime;
         }
 
         if (Input.GetKeyDown("space") && JumpAvailable)
