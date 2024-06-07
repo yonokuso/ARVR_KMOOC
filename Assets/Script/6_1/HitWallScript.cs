@@ -12,8 +12,11 @@ public class HitWallScript : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        //Debug.Log("¾Æ¾ß!");
-        GetComponent<MeshRenderer>().material.color = Color.red;
+        if(other.gameObject.tag == "Blue")
+        {
+            GetComponent<MeshRenderer>().material.color = Color.red;
+        }
+
     }
 
     // Update is called once per frame

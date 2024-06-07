@@ -14,8 +14,12 @@ public class CountScript : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        hit++;
-        Debug.Log("国结 " + hit + "锅捞唱 何碟躯垒酒!");
+        if (collision.gameObject.tag == "Target")
+        {
+            hit++;
+            Debug.Log("国结 " + hit + "锅捞唱 何碟躯垒酒!");
+        }
+      
 
     }
     // Update is called once per frame

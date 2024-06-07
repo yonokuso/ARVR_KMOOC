@@ -5,12 +5,16 @@ using UnityEngine;
 public class BallScript : MonoBehaviour
 {
     public float WaitTime = 2f;
+    MeshRenderer Renderer; // 컴포넌트 변수화
+    Rigidbody Rigid;
 
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<MeshRenderer>().enabled = false;
-        GetComponent<Rigidbody>().useGravity = false;
+        Renderer = GetComponent<MeshRenderer>();
+        Rigid = GetComponent<Rigidbody>();
+        Renderer.enabled = false;
+        Rigid.useGravity = false;
     }
 
     // Update is called once per frame
@@ -18,8 +22,8 @@ public class BallScript : MonoBehaviour
     {
         if (Time.time > WaitTime)
         {
-            GetComponent<MeshRenderer>().enabled = true;
-            GetComponent<Rigidbody>().useGravity = true;
+            Renderer.enabled = true;
+            Rigid.useGravity = true;
 
 
         }
