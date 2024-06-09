@@ -5,6 +5,9 @@ using UnityEngine;
 public class CountScript : MonoBehaviour
 {
     int hit = 3;
+    float PresentTime = 0;
+    public float AppearTime = 5f;
+    public GameObject BallPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +41,18 @@ public class CountScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        PresentTime += Time.deltaTime;
+        if(PresentTime > AppearTime)
+        {
+            float newX = Random.Range(-7f, 7f);
+            float newY = Random.Range(7f, 12f);
+            float newZ = Random.Range(-7f, 7f);
+
+
+            GameObject Ball = Instantiate(BallPrefab);
+            Ball.transform.position = new Vector3(newX,newY,newZ);
+
+            PresentTime = 0;
+        }
     }
 }
