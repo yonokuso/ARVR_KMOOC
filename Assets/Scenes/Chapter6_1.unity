@@ -2292,7 +2292,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -4431763055047117074, guid: ead699a1bdedc3a4a8f5cc64497bb1b1, type: 3}
       propertyPath: LifeTime
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5254101507156306865, guid: ead699a1bdedc3a4a8f5cc64497bb1b1, type: 3}
       propertyPath: m_Name
