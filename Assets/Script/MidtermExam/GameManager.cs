@@ -15,23 +15,23 @@ public class GameManager : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        while (true)
+    { // Update에 무한루프 쓰지마셈!!!!!!!!!!
+
+        PresentTime += Time.deltaTime;
+        
+        if (PresentTime >= 3)
         {
-            PresentTime += Time.deltaTime;
-            if (PresentTime == 3)
-            {
-                float newX = Random.Range(-10f, 10f);
-                float newZ = Random.Range(-10f, 10f);
+            float newX = Random.Range(-10f, 10f);
+            float newZ = Random.Range(-10f, 10f);
 
-                GameObject Goalous = Instantiate(cylinder);
-                cylinder.transform.position = new Vector3(newX, 10, newZ);
+            GameObject Goalous = Instantiate(cylinder);
+            cylinder.transform.position = new Vector3(newX, 10, newZ);
 
-                PresentTime = 0;
-            }
+            PresentTime = 0;
         }
-        
 
-        
+
     }
+
+
 }

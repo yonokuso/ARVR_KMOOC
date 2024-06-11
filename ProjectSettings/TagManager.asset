@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Blue
   - Target
+  - Pink
+  - White
+  - Yellow
+  - Green
   layers:
   - Default
   - TransparentFX
