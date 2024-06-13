@@ -10,6 +10,7 @@ TagManager:
   - White
   - Yellow
   - Green
+  - Floor
   layers:
   - Default
   - TransparentFX
