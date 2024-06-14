@@ -4,7 +4,14 @@ using UnityEditor;
 using UnityEngine;
 
 public class CylinderManager : MonoBehaviour
-{    
+{
+    MeshRenderer mr;
+
+    void Start()
+    {
+        mr = GetComponent<MeshRenderer>();
+    }
+
     private void OnCollisionStay(Collision collision)
     {
         GameObject playerObj = GameObject.FindWithTag("Player"); // 하..........
@@ -23,7 +30,7 @@ public class CylinderManager : MonoBehaviour
                 {
                     case "Player":
                     case "Green": // player, green과 닿았을 때
-                        Debug.Log("Blue 성공");
+                       // Debug.Log("Blue 성공");
 
                         transform.position = new Vector3(newX, transform.position.y, newZ);
                         break;
@@ -39,7 +46,7 @@ public class CylinderManager : MonoBehaviour
                 {
                     case "Blue":
                     case "Yellow": // Blue, Yellow와  닿았을 때
-                        Debug.Log("Green 성공");
+                        //Debug.Log("Green 성공");
 
                         transform.position = new Vector3(newX, transform.position.y, newZ);
                         break;
@@ -55,7 +62,7 @@ public class CylinderManager : MonoBehaviour
                 {
                     case "Green":
                     case "White": // Green, White와  닿았을 때
-                        Debug.Log("Yellow 성공");
+                       // Debug.Log("Yellow 성공");
 
                         transform.position = new Vector3(newX, transform.position.y, newZ);
                         break;
@@ -71,7 +78,7 @@ public class CylinderManager : MonoBehaviour
                 {
                     case "Yellow":
                     case "Pink": // Yellow, Pink와  닿았을 때
-                        Debug.Log("White 성공");
+                       // Debug.Log("White 성공");
 
                         transform.position = new Vector3(newX, transform.position.y, newZ);
                         break;
@@ -86,26 +93,66 @@ public class CylinderManager : MonoBehaviour
                 switch (collision.gameObject.tag) // 닿은 실린더의 태그
                 {
                     case "White": // White와  닿았을 때
-                        Debug.Log("Pink 성공, 점수 추가.");
+                        //Debug.Log("Pink 성공, 점수 추가.");
 
                         transform.position = new Vector3(newX, transform.position.y, newZ);
                         // 이 사이에 텀을 두고 싶다
+                        //Invoke("OnCollisionStay", 5f); // 안됨
+                        //  yield return new WaitForSeconds(3f); //안됨
                         Destroy(collision.gameObject); // White 파괴, 순서대로 전부 파괴됨..
 
                         break;
+
+                    case "Player":
+                    case "Floor":
+                        Destroy(gameObject);
+                        break;
+
                 }
                 break;
         }
             
     }
 
-
-    // Start is called before the first frame update
-    void Start()
+    void SetColors() // 태그에 따른 색상 설정
     {
-        
+        if (transform.tag == "Blue")
+        {
+            mr.material.color = Color.blue;
+
+        }
+
+        if (transform.tag == "Green")
+        {
+            mr.material.color = Color.green;
+
+        }
+
+        if (transform.tag == "Yellow")
+        {
+            mr.material.color = Color.yellow;
+
+        }
+
+        if (transform.tag == "White")
+        {
+            mr.material.color = Color.white;
+
+        }
+
+        if (transform.tag == "Pink")
+        {
+            mr.material.color = Color.magenta;
+
+        }
+
     }
 
-    
+    private void Update()
+    {
+        SetColors();
+    }
+
+
 
 }
